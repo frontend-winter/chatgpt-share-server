@@ -8,7 +8,7 @@ database:
     name: "cool" # 数据库名称
     charset: "utf8mb4" # 数据库编码
     timezone: "Asia/Shanghai" # 数据库时区
-    debug: true # 是否开启调试模式，开启后会打印SQL日志
+    # debug: true # 是否开启调试模式，开启后会打印SQL日志
     createdAt: "createTime" # 创建时间字段
     updatedAt: "updateTime" # 更新时间字段
 
