@@ -22,7 +22,7 @@ services:
     volumes:
       - ./data/redis/:/data/
   chatgpt-share-server:
-    image: xyhelper/chatgpt-share-server:latest
+    image: fewinter/chatgpt-share-server-test:latest
     restart: always
     ports:
       - 8300:8001
@@ -38,7 +38,7 @@ services:
       - ./config.yaml:/app/config.yaml
       - ./data/chatgpt-share-server/:/app/data/
     labels:
-      - "com.centurylinklabs.watchtower.scope=xyhelper-chatgpt-share-server"
+      - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-test"
   auditlimit:
     image: xyhelper/auditlimit
     restart: always
@@ -48,14 +48,14 @@ services:
       LIMIT: 40  # 限制每个userToken允许的次数
       PER: "3h" # 限制周期 1s, 1m, 1h, 1d, 1w, 1y
     labels:
-      - "com.centurylinklabs.watchtower.scope=xyhelper-chatgpt-share-server"
+      - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-test"
   watchtower:
     image: containrrr/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --scope xyhelper-chatgpt-share-server --cleanup
+    command: --scope fewinter-chatgpt-share-server-test --cleanup
     restart: always
     environment:
       - TZ=Asia/Shanghai
     labels:
-      - "com.centurylinklabs.watchtower.scope=xyhelper-chatgpt-share-server"
+      - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-test"

@@ -38,3 +38,10 @@ modules:
         enable: 1
       log:
         enable: 1
+
+
+# 商城URL 设置你的支付地址之后 前端页面会展示在菜单栏 用户点击弹窗显示
+# SHOP_URL: "https://pay.xxx.com"
+
+# MIRROR_URL mirror 地址
+# MIRROR_URL: "https://mirror.xxx.com"
