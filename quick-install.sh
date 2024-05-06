@@ -3,10 +3,10 @@ set -e
 
 ## 克隆仓库到本地
 echo "clone repository..."
-git clone -b deploy  --depth=1 https://github.com/frontend-winter/chatgpt-share-server.git chatgpt-share
+git clone -b --depth=1 https://github.com/frontend-winter/chatgpt-share-server.git chatgpt-share-server
 
 ## 进入目录
-cd chatgpt-share
+cd chatgpt-share-server
 
 docker compose pull
 docker compose up -d --remove-orphans

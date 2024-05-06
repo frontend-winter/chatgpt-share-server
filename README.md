@@ -1,8 +1,8 @@
 # chatgpt-share-server
 
-## 源码来自xyhelper
+## 源码来自`xyhelper`
 
-## 此项目完全兼容原版share，即使增加了用户体系，放心安装【二开自行辨别！】
+## 此项目完全兼容原版share，即使增加了用户体系，放心安装【二开自行辨别!!!】
 
 ## 日志
 - 2024/03/18 修复UserToken过期了还能使用的问题
@@ -43,11 +43,11 @@
 
 ### 一键部署
 ```bash
-curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-server/deploy/quick-install.sh | bash
+curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-server/master/quick-install.sh | bash
 ```
 
 ### 如果你是老系统想直接迁移，请继续阅读
-- 先备份，万事开头先备份，接着看
+1、先备份，万事开头先备份，接着看
 - 找到你的docker-compose.yml修改以下几个地方
 ```html
 把这个地方注释掉：
@@ -65,12 +65,12 @@ image: fewinter/chatgpt-share-server-test:latest
 ```
 - 保存 ./deploy.sh 不出意外的话应该能访问了
 
-- 后台增加客户管理页面
+2、后台增加客户管理页面
 - 点击系统管理 - 权限管理 - 菜单管理 - 增加列表【点击新增按钮】
 - 填写以下参数，我这里已经填写好了
 - ![子目录图片](./images/img_10.png)
 
-### 付费安装联系wx `frontend-winter`
+### 遇到问题？请联系wx： `frontend-winter`
 
 ## 此项目源码暂不开源，如有需要联系wx `frontend-winter`
 
