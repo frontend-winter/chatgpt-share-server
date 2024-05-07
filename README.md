@@ -68,7 +68,8 @@ image: fewinter/chatgpt-share-server-test:latest
 2、后台增加客户管理页面
 - 点击系统管理 - 权限管理 - 菜单管理 - 增加列表【点击新增按钮】
 - 填写以下参数，我这里已经填写好了
-- ![子目录图片](./images/img_10.png)
+- ![子目录图片](./images/img_11.png)
+- ![子目录图片](./images/img_12.png)
 
 ### 遇到问题？请联系wx： `frontend-winter`
 
