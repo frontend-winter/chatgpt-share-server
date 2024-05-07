@@ -53,7 +53,7 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 把这个地方注释掉：
 #image: xyhelper/chatgpt-share-server:latest
 加上这一行：
-image: fewinter/chatgpt-share-server-test:latest
+image: fewinter/chatgpt-share-server-prod:latest
 
 如果你有自定义list页面，还要注释下面这一行
 # - ./list:/app/resource/public/list
@@ -61,7 +61,7 @@ image: fewinter/chatgpt-share-server-test:latest
 把这个地方注释掉【一共有三个地方需要修改，自行判断】
 # - "com.centurylinklabs.watchtower.scope=xyhelper-chatgpt-share-server"
 加上这一行
-- "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-test"
+- "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-prod"
 ```
 - 保存 ./deploy.sh 不出意外的话应该能访问了
 
