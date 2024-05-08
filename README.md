@@ -6,7 +6,7 @@
 
 ## 在线体验
 - 用户端：[demoe.ainx.cc](https://demoe.ainx.cc) 【自行注册账号】
-- 客户端：[demoe.ainx.cc/xyhelper](https://demoe.ainx.cc/xyhelper) 
+- 管理端：[demoe.ainx.cc/xyhelper](https://demoe.ainx.cc/xyhelper) 
 
 ## 日志
 - 2024/03/18 修复UserToken过期了还能使用的问题
