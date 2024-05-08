@@ -4,6 +4,10 @@
 
 ## 此项目完全兼容原版share，即使增加了用户体系，放心安装【二开自行辨别!!!】
 
+## 在线体验
+- 用户端：[demoe.ainx.cc](https://demoe.ainx.cc) 【自行注册账号】
+- 客户端：[demoe.ainx.cc/xyhelper](https://demoe.ainx.cc/xyhelper) 【】
+
 ## 日志
 - 2024/03/18 修复UserToken过期了还能使用的问题
 - 2024/03/21 用户管理模块增加UserToken的模糊查询
@@ -41,12 +45,18 @@
 
 ## 如何部署
 
-### 一键部署
+### 1、一键部署
 ```bash
 curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-server/master/quick-install.sh | bash
 ```
 
-### 如果你是老系统想直接迁移，请继续阅读
+### 2、手动部署
+
+- git clone https://github.com/frontend-winter/chatgpt-share-server.git
+- cd chatgpt-share-server
+- ./deploy.sh
+
+### 3、老用户部署：如果你是老系统想直接迁移，请继续阅读
 1、先备份，万事开头先备份，接着看
 - 找到你的docker-compose.yml修改以下几个地方
 ```html
@@ -65,15 +75,17 @@ image: fewinter/chatgpt-share-server-prod:latest
 ```
 - 保存 ./deploy.sh 不出意外的话应该能访问了
 
-2、后台增加客户管理页面
+### 后台增加客户管理页面
 - 点击系统管理 - 权限管理 - 菜单管理 - 增加列表【点击新增按钮】
 - 填写以下参数，我这里已经填写好了
 - ![子目录图片](./images/img_11.png)
+- 新增权限
 - ![子目录图片](./images/img_12.png)
+- 刷新当前页签即可
 
 ### 遇到问题？请联系wx： `frontend-winter`
 
-## 此项目源码暂不开源，如有需要联系wx `frontend-winter`
+## 此项目源码暂不开源，如有需要联系wx `frontend-winter`，可以获得15天体验日期
 
 # 特别说明
 

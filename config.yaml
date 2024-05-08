@@ -45,3 +45,14 @@ modules:
 
 # MIRROR_URL mirror 地址
 # MIRROR_URL: "https://mirror.xxx.com"
+
+# 邮箱服务配置
+emailService:
+  host: "" # SMTP服务器地址
+  port: "" # SMTP端口，使用SSL通常为465
+  user: "" # 邮箱用户名
+  password: "" # 邮箱密码
+  from: "" # 默认发件人地址
+  ssl: true # 是否使用SSL连接（使用端口465通常设置为true）
+  startTLS: true # 跳过证书验证
+
