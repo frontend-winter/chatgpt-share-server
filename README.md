@@ -5,8 +5,8 @@
 ## 此项目完全兼容原版share，即使增加了用户体系，放心安装【二开自行辨别!!!】
 
 ## 在线体验
-- 用户端：[demoe.ainx.cc](https://demoe.ainx.cc) 【自行注册账号】
-- 管理端：[demoe.ainx.cc/xyhelper](https://demoe.ainx.cc/xyhelper) 
+- 用户端：[demo.ainx.cc](https://demo.ainx.cc) 【自行注册账号】
+- 管理端：[demo.ainx.cc/xyhelper](https://demo.ainx.cc/xyhelper) 
 
 ## 日志
 - 2024/03/18 修复UserToken过期了还能使用的问题
