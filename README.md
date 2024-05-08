@@ -81,7 +81,6 @@ image: fewinter/chatgpt-share-server-prod:latest
 - ![子目录图片](./images/img_11.png)
 - 新增权限
 - ![子目录图片](./images/img_12.png)
-- 刷新当前页签即可
 
 ### 遇到问题？请联系wx： `frontend-winter`
 
