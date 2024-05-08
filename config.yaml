@@ -43,8 +43,11 @@ modules:
 # 商城URL 设置你的支付地址之后 前端页面会展示在菜单栏 用户点击弹窗显示
 # SHOP_URL: "https://pay.xxx.com"
 
-# MIRROR_URL mirror 地址
+# mirror 地址
 # MIRROR_URL: "https://mirror.xxx.com"
+
+# 限速规则 只用于展示作用，具体限速规则自行配置
+SPEED_LIMIT_RULE: "3小时/100次"
 
 # 邮箱服务配置 如果你没有邮箱服务，下面内容删除即可
 #emailService:
