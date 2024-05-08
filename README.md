@@ -6,7 +6,7 @@
 
 ## 在线体验
 - 用户端：[demoe.ainx.cc](https://demoe.ainx.cc) 【自行注册账号】
-- 客户端：[demoe.ainx.cc/xyhelper](https://demoe.ainx.cc/xyhelper) 【】
+- 客户端：[demoe.ainx.cc/xyhelper](https://demoe.ainx.cc/xyhelper) 
 
 ## 日志
 - 2024/03/18 修复UserToken过期了还能使用的问题
@@ -75,7 +75,7 @@ image: fewinter/chatgpt-share-server-prod:latest
 ```
 - 保存 ./deploy.sh 不出意外的话应该能访问了
 
-### 后台增加客户管理页面
+### 4、后台增加客户管理页面
 - 点击系统管理 - 权限管理 - 菜单管理 - 增加列表【点击新增按钮】
 - 填写以下参数，我这里已经填写好了
 - ![子目录图片](./images/img_11.png)
