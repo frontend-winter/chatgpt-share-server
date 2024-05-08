@@ -84,6 +84,8 @@ image: fewinter/chatgpt-share-server-prod:latest
 
 ### 遇到问题？请联系wx： `frontend-winter`
 
+### 微信群
+- ![子目录图片](./images/img_13.png)
 ## 此项目源码暂不开源，如有需要联系wx `frontend-winter`，可以获得15天体验日期
 
 # 特别说明
