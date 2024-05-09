@@ -40,7 +40,7 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-prod"
   auditlimit:
-    image: xyhelper/auditlimit
+    image: fewinter/share-auditlimit-prod
     restart: always
     # ports:
     #   - 9611:8080
