@@ -1,3 +1,4 @@
+# 2024/05/20日起 此项目不进行开源
 # chatgpt-share-server
 
 ## 源码来自`xyhelper`
