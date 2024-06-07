@@ -1,12 +1,10 @@
-# 2024/05/20日起 此项目不进行开源
-# chatgpt-share-server
 
-## 源码来自`xyhelper`
+# chatgpt-share-server-extend
 
-## 此项目完全兼容原版share，即使增加了用户体系，放心安装【二开自行辨别!!!】
+## 此项目是go语言开发的`chatgpt-share-server`外挂容器`chatgpt-share-server-extend`
 
 ## 在线体验
-- 用户端：[demo.ainx.cc](https://demo.ainx.cc) 【自行注册账号】
+- 用户端：[demo.ainx.cc](https://demo.ainx.cc) 【自行注册账号/体验账号:test@gmail.com:test@gmail.com】
 - 管理端：[demo.ainx.cc/xyhelper](https://demo.ainx.cc/xyhelper) 
 
 ## 日志
@@ -16,6 +14,7 @@
 - 2024/04/16 增加批量创建userToken功能
 - 2024/04/30 增加用户体系全套功能 登录、注册、忘记密码、授权码兑换...
 
+- 2024/06/07 代码重构 改成外挂容器`chatgpt-share-server-extend`、修复已知bug
 ## 系统截图说明
 ### 用户界面
 - [x] 用户登录
@@ -47,8 +46,37 @@
 ## 如何部署
 
 ### 1、一键部署
+
+- 安装脚本
 ```bash
 curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-server/master/quick-install.sh | bash
+```
+
+- nginx 配置文件 找到你的nginx配置，修改成以下配置。如果你不是nginx 自行配置
+```nginx configuration
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header REMOTE-HOST $remote_addr;
+        
+        # chatgpt-share-server 的端口
+        location / {
+            proxy_pass http://127.0.0.1:8300;
+        }
+        
+        # chatgpt-share-server-extend 的端口
+        location /exend/ {
+            proxy_pass http://127.0.0.1:8301/;
+        }
+        # chatgpt-share-server-extend 的端口
+        location /admin/ {
+            proxy_pass http://127.0.0.1:8301/admin/;
+        }
+        # chatgpt-share-server-extend 的端口
+        location ~ ^/(list|xyhelper|u)(/.*)?$ {
+            proxy_pass http://127.0.0.1:8301/$1$2;
+        }
+
 ```
 
 ### 2、手动部署
@@ -57,26 +85,39 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 - cd chatgpt-share-server
 - ./deploy.sh
 
-### 3、老用户部署：如果你是老系统想直接迁移，请继续阅读
-1、先备份，万事开头先备份，接着看
-- 找到你的docker-compose.yml修改以下几个地方
-```html
-把这个地方注释掉：
-#image: xyhelper/chatgpt-share-server:latest
-加上这一行：
-image: fewinter/chatgpt-share-server-prod:latest
+- 修改你的 nginx配置 如上
 
-如果你有自定义list页面，还要注释下面这一行
-# - ./list:/app/resource/public/list
+### 3、老用户部署：如果你是老系统想直接想用，请继续阅读
+1、先备份、先备份、先备份 
+- `docker compose down`
+- `cp -r ../chatgpt-share-server ../chatgpt-share-server-bak`
 
-把这个地方注释掉【一共有三个地方需要修改，自行判断】
-# - "com.centurylinklabs.watchtower.scope=xyhelper-chatgpt-share-server"
-加上这一行
-- "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-prod"
+2、备份好了 接着看
+- 找到你的`docker-compose.yml`文件 在 `chatgpt-share-server` 下方再增加一个容器配置
+```shell
+  chatgpt-share-server-extend:
+    image: fewinter/chatgpt-share-server-extend:latest
+    restart: always
+    ports:
+      - 8301:8002
+    environment:
+      TZ: Asia/Shanghai
+      # 接入网关地址
+      CHATPROXY: "https://demo.xyhelper.cn"
+      # 接入网关的authkey
+      AUTHKEY: "xyhelper"
+    volumes:
+      - ./config.yaml:/app/config.yaml
+      - ./data/chatgpt-share-server/:/app/data/
+    labels:
+      - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
 ```
-- 保存 ./deploy.sh 不出意外的话应该能访问了
+- 保存 ./deploy.sh 
+- 修改你的 nginx配置 如上
 
-### 4、后台增加客户管理页面
+### 4、如果是之前就部署了`fewinter/chatgpt-share-server`的镜像用户要迁移，自行参考`docker-compose.yml`文件修改
+
+### 5、后台增加客户管理页面
 - 点击系统管理 - 权限管理 - 菜单管理 - 增加列表【点击新增按钮】
 - 填写以下参数，我这里已经填写好了
 - ![子目录图片](./images/img_11.png)
