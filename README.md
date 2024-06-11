@@ -59,6 +59,9 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header REMOTE-HOST $remote_addr;
         
+        proxy_buffering off;
+        proxy_cache_bypass no_cache;
+        
         # chatgpt-share-server 的端口
         location / {
             proxy_pass http://127.0.0.1:8300;
@@ -76,6 +79,46 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
         location ~ ^/(list|xyhelper|u)(/.*)?$ {
             proxy_pass http://127.0.0.1:8301/$1$2;
         }
+
+```
+
+
+- 备用配置
+```nginx configuration
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header REMOTE-HOST $remote_addr;
+        
+        proxy_buffering off;
+        proxy_cache_bypass no_cache;
+        
+        # chatgpt-share-server 的端口
+        location / {
+            proxy_pass http://127.0.0.1:8300;
+        }
+        
+        # chatgpt-share-server-extend 的端口
+        location /exend/ {
+            proxy_pass http://127.0.0.1:8301/;
+        }
+        # chatgpt-share-server-extend 的端口
+        location /admin/ {
+            proxy_pass http://127.0.0.1:8301/admin/;
+        }
+        
+        location /list/ {
+            proxy_pass http://127.0.0.1:8301/list/;
+        }
+
+        location /xyhelper/ {
+            proxy_pass http://127.0.0.1:8301/xyhelper/;
+        }
+
+        location /u/ {
+            proxy_pass http://127.0.0.1:8301/u/;
+        }
+
 
 ```
 
