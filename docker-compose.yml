@@ -55,6 +55,8 @@ services:
       - ./data/chatgpt-share-server/:/app/data/
     labels:
       - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
+    depends_on:
+      - chatgpt-share-server
   auditlimit:
     image: fewinter/share-auditlimit-prod
     restart: always
