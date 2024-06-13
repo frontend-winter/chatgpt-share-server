@@ -167,12 +167,12 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 - 新增权限
 - ![子目录图片](./images/img_12.png)
 
-### 遇到问题？请联系wx： `frontend-winter`
-
-### 遇到这种情况的联系我开通一下域名
+### 遇到这种情况的联系我开通一下域名 wx： `frontend-winter`
 - ![子目录图片](./images/img_14.png)
 
-### 微信群
+### 遇到问题？基本上你遇到的百分之90的问题文档都有写，请最少查看文档三遍以上。 
+
+### 加微信群
 - ![子目录图片](./images/img_13.png)
 
 # 特别说明
