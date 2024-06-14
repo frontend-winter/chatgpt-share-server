@@ -63,8 +63,10 @@ services:
     # ports:
     #   - 9611:8080
     environment:
-      LIMIT: 40  # 限制每个userToken允许的次数
-      PER: "3h" # 限制周期 1s, 1m, 1h, 1d, 1w, 1y
+      LIMIT: 40  # 限制PLUS每个userToken允许的次数
+      PER: "3h" # 限制PLUS周期 1s, 1m, 1h, 1d, 1w, 1y
+      OLIMIT: 6 # 限制免费模型 每个userToken允许的次数
+      OPER: "3m" # 限制免费模型 周期 1s, 1m, 1h, 1d, 1w, 1y
     labels:
       - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
   watchtower:
