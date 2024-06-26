@@ -135,7 +135,7 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 - `docker compose down`
 - `cp -r ../chatgpt-share-server ../chatgpt-share-server-bak`
 
-2、备份好了 接着看
+2、备份好了？ 接着看
 - 找到你的`docker-compose.yml`文件 在 `chatgpt-share-server` 下方再增加一个容器配置
 ```shell
   chatgpt-share-server-extend:
@@ -170,7 +170,10 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 ### 遇到这种情况的联系我开通一下域名 wx： `frontend-winter`
 - ![子目录图片](./images/img_14.png)
 
-### 遇到问题？基本上你遇到的百分之90的问题文档都有写，请最少查看文档三遍以上。 
+### 遇到问题？重启服务
+- `docker compose down`
+- `./deploy.sh`
+### 还是遇到问题？基本上你遇到的百分之90的问题文档都有写，请最少查看文档三遍以上。 
 
 ### 加微信群
 - ![子目录图片](./images/img_13.png)
