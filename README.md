@@ -2,6 +2,7 @@
 # chatgpt-share-server-extend
 
 ## 此项目是go语言开发的`chatgpt-share-server`外挂容器`chatgpt-share-server-extend`
+## 如何收费？此项目完全免费，安装好之后你提供域名给我过白即可
 
 ## 在线体验
 - 用户端：[demo.ainx.cc](https://demo.ainx.cc) 【自行注册账号/体验账号:test@gmail.com:test@gmail.com】
@@ -76,8 +77,16 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
             proxy_pass http://127.0.0.1:8301/admin/;
         }
         # chatgpt-share-server-extend 的端口
-        location ~ ^/(list|xyhelper|u)(/.*)?$ {
-            proxy_pass http://127.0.0.1:8301/$1$2;
+        location /list/ {
+            proxy_pass http://127.0.0.1:8301/list/;
+        }
+        # chatgpt-share-server-extend 的端口
+        location /xyhelper/ {
+            proxy_pass http://127.0.0.1:8301/xyhelper/;
+        }
+        # chatgpt-share-server-extend 的端口
+        location /u/ {
+            proxy_pass http://127.0.0.1:8301/u/;
         }
 
 ```
@@ -107,16 +116,9 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
             proxy_pass http://127.0.0.1:8301/admin/;
         }
         
-        location /list/ {
-            proxy_pass http://127.0.0.1:8301/list/;
-        }
-
-        location /xyhelper/ {
-            proxy_pass http://127.0.0.1:8301/xyhelper/;
-        }
-
-        location /u/ {
-            proxy_pass http://127.0.0.1:8301/u/;
+        # chatgpt-share-server-extend 的端口
+        location ~ ^/(list|xyhelper|u)(/.*)?$ {
+            proxy_pass http://127.0.0.1:8301/$1$2;
         }
 
 
