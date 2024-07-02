@@ -124,6 +124,9 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 
 ```
 
+- 正确的配置看起来的是这样的
+- ![子目录图片](./images/img_15.png)
+
 ### 2、手动部署
 
 - git clone https://github.com/frontend-winter/chatgpt-share-server.git
@@ -164,7 +167,7 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 
 ### 5、后台增加客户管理页面
 - 点击系统管理 - 权限管理 - 菜单管理 - 增加列表【点击新增按钮】
-- 填写以下参数，我这里已经填写好了
+- 填写以下参数，我这里已经填写好了（如果你的文件路径没有client选项，说明nginx配置配置错误了）
 - ![子目录图片](./images/img_11.png)
 - 新增权限
 - ![子目录图片](./images/img_12.png)
