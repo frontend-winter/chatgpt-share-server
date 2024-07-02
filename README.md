@@ -126,6 +126,8 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 
 - 正确的配置看起来的是这样的
 - ![子目录图片](./images/img_15.png)
+- 把这些无用的配置注释
+- ![子目录图片](./images/img_16.png)
 
 ### 2、手动部署
 
