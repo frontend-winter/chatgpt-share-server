@@ -69,7 +69,7 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
         }
         
         # chatgpt-share-server-extend 的端口
-        location /extend/ {
+        location /exend/ {
             proxy_pass http://127.0.0.1:8301/;
         }
         # chatgpt-share-server-extend 的端口
@@ -108,7 +108,7 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
         }
         
         # chatgpt-share-server-extend 的端口
-        location /extend/ {
+        location /exend/ {
             proxy_pass http://127.0.0.1:8301/;
         }
         # chatgpt-share-server-extend 的端口
