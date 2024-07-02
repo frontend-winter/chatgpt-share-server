@@ -173,6 +173,8 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 - ![子目录图片](./images/img_11.png)
 - 新增权限
 - ![子目录图片](./images/img_12.png)
+- 用户管理修改名称为授权码管理
+- ![子目录图片](./images/img_17.png)
 
 ### 遇到这种情况的联系我开通一下域名 wx： `frontend-winter`(备注：share过白名单：【你的域名】，不然不会通过)
 - ![子目录图片](./images/img_14.png)
