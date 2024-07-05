@@ -59,3 +59,4 @@ SPEED_LIMIT_RULE: "3小时/100次"
 #  ssl: true # 是否使用SSL连接（使用端口465通常设置为true）
 #  startTLS: true # 跳过证书验证
 
+THEME_TYPE: "1" # 主题类型 1:默认 2:简约
