@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   mysql:
-    image: mysql:8
+    image: mysql:8.4
     command: --mysql-native-password=ON --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
     volumes:
@@ -32,8 +32,6 @@ services:
       CHATPROXY: "https://demo.xyhelper.cn"
       # 接入网关的authkey
       AUTHKEY: "xyhelper"
-      # 内容审核及速率限制
-      AUDIT_LIMIT_URL: "http://auditlimit:8080/audit_limit"
     volumes:
       - ./config.yaml:/app/config.yaml
       - ./data/chatgpt-share-server/:/app/data/
@@ -64,9 +62,11 @@ services:
     #   - 9611:8080
     environment:
       LIMIT: 40  # 限制PLUS每个userToken允许的次数
-      PER: "3h" # 限制PLUS周期 1s, 1m, 1h, 1d, 1w, 1y
+      PER: "3h" # 限制PLUS周期 单位只能是h，0.05h=3分钟，0.1h=6分钟，0.5h=30分钟，1h=60分钟，以此类推
       OLIMIT: 6 # 限制免费模型 每个userToken允许的次数
-      OPER: "3m" # 限制免费模型 周期 1s, 1m, 1h, 1d, 1w, 1y
+      OPER: "0.1h" # 限制免费模型周期 单位只能是h，0.05h=3分钟，0.1h=6分钟，0.5h=30分钟，1h=60分钟，以此类推
+    volumes:
+      - ./config.yaml:/app/config.yaml
     labels:
       - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
   watchtower:
