@@ -2,7 +2,6 @@
 # chatgpt-share-server-extend
 
 ## 此项目是go语言开发的`chatgpt-share-server`外挂容器`chatgpt-share-server-extend`
-## 如何收费？此项目完全免费，安装好之后你提供域名给我过白即可
 
 ## 在线体验
 - 用户端：[demo.ainx.cc](https://demo.ainx.cc) 【自行注册账号/体验账号:test@gmail.com:test@gmail.com】
