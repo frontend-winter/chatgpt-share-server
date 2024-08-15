@@ -48,6 +48,8 @@ services:
       CHATPROXY: "https://demo.xyhelper.cn"
       # 接入网关的authkey
       AUTHKEY: "xyhelper"
+      # 登录有效期 默认是30天，单位小时
+      SESSION_MAX_AGE: 720
     volumes:
       - ./config.yaml:/app/config.yaml
       - ./data/chatgpt-share-server/:/app/data/
@@ -67,6 +69,8 @@ services:
       OPER: "0.1h" # 限制免费模型周期 单位只能是h，0.05h=3分钟，0.1h=6分钟，0.5h=30分钟，1h=60分钟，以此类推
     volumes:
       - ./config.yaml:/app/config.yaml
+      # 如果不需要内容审核填加一个keywords.txt文件，内容为空，再把下面的注释打开即可
+      #- ./keywords.txt:/app/data/keywords.txt
     labels:
       - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
   watchtower:
