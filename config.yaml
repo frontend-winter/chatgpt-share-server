@@ -65,3 +65,36 @@ THEME_TYPE: "1" # 主题类型 1:默认 2:简约
 AUDIT_LIMIT_URL: "http://auditlimit:8080/audit_limit"
 # 对话响应成功回调地址
 ConversationNotifyUrl: "http://auditlimit:8080/audit_limit_callback"
+
+
+# 自定义 tabs
+tabs:
+  "1":
+    name: "免费节点"
+    sort: 0
+  "2":
+    name: "付费节点"
+    sort: 1
+  "3":
+    name: "独享入口"
+    url: "https://mirror.ainx.cc"
+    sort: 2
+    mirror: true
+  "4":
+    name: "嵌套第三方地址"
+    url: "https://mirror.ainx.cc"
+    sort: 3
+    showIframe: true
+  "5":
+    name: "第三方URL"
+    url: "https://mirror.ainx.cc"
+    sort: 4
+  "normal":
+    name: "3.5节点"
+    sort: 5
+  "advanced":
+    name: "PLUS节点"
+    sort: 6
+  "all":
+    name: "所有节点"
+    sort: 7
