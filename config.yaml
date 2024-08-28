@@ -77,17 +77,17 @@ tabs:
     sort: 1
   "3":
     name: "独享入口"
-    url: "https://mirror.ainx.cc"
+    url: "https://ant.design"
     sort: 2
     mirror: true
   "4":
     name: "嵌套第三方地址"
-    url: "https://mirror.ainx.cc"
+    url: "https://baidu.com"
     sort: 3
     showIframe: true
   "5":
     name: "第三方URL"
-    url: "https://mirror.ainx.cc"
+    url: "https://baidu.com"
     sort: 4
   "normal":
     name: "3.5节点"
