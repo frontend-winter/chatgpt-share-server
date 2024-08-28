@@ -70,14 +70,14 @@ ConversationNotifyUrl: "http://auditlimit:8080/audit_limit_callback"
 # 自定义 tabs 配置（key 不能做修改，选择需要的配置即可，最少需要填写一个；name 可以任意修改；sort 排序）
 # key说明
 # 1 -> 免费账号 会查询出所有免费账号显示
-# 2 -> 付费账号 会查询出所有免费账号显示
+# 2 -> 付费账号 会查询出所有付费账号显示
 # 3 -> 独享入口（mirror，如果你不用就不管）
 # normal -> 3.5账号 会查询出所有3.5账号显示
 # advanced -> PLUS账号 会查询出所有PLUS账号显示
 # all -> 所有账号 会查询出所有账号显示
 tabs:
   "1":
-    name: "免费节点"
+    name: "免费节点(10次/24小时)"
     sort: 0
   "2":
     name: "付费节点"
