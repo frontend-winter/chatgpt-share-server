@@ -76,32 +76,32 @@ ConversationNotifyUrl: "http://auditlimit:8080/audit_limit_callback"
 # advanced -> PLUS账号 会查询出所有PLUS账号显示
 # all -> 所有账号 会查询出所有账号显示
 tabs:
-  "1":
-    name: "免费节点(10次/24小时)"
-    sort: 0
-  "2":
-    name: "付费节点"
-    sort: 1
-  "3":
-    name: "独享入口"
-    url: "https://ant.design"
-    sort: 2
-    mirror: true
-  "4":
-    name: "嵌套第三方地址"
-    url: "https://baidu.com"
-    sort: 3
-    showIframe: true
-  "5":
-    name: "第三方URL"
-    url: "https://baidu.com"
-    sort: 4
+#  "1":
+#    name: "免费节点(10次/24小时)"
+#    sort: 0
+#  "2":
+#    name: "付费节点"
+#    sort: 1
+#  "3":
+#    name: "独享入口"
+#    url: "https://ant.design"
+#    sort: 2
+#    mirror: true
+#  "4":
+#    name: "嵌套第三方地址"
+#    url: "https://baidu.com"
+#    sort: 3
+#    showIframe: true
+#  "5":
+#    name: "第三方URL"
+#    url: "https://baidu.com"
+#    sort: 4
   "normal":
     name: "3.5节点"
     sort: 5
   "advanced":
     name: "PLUS节点"
     sort: 6
-  "all":
-    name: "所有节点"
-    sort: 7
+#  "all":
+#    name: "所有节点"
+#    sort: 7
