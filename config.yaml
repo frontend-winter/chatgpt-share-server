@@ -97,11 +97,16 @@ tabs:
 #    url: "https://baidu.com"
 #    sort: 4
   "normal":
-    name: "3.5节点"
-    sort: 5
+    name: "MINI频道"
+    sort: 1
   "advanced":
-    name: "PLUS节点"
-    sort: 6
+    name: "PLUS频道"
+    sort: 2
+  "6":
+    name: "API"
+    url: "https://app.nextchat.dev/"
+    sort: 3
+    showIframe: true
 #  "all":
 #    name: "所有节点"
 #    sort: 7
