@@ -1,4 +1,3 @@
-
 # chatgpt-share-server-extend
 
 ## 此项目是go语言开发的`chatgpt-share-server`外挂容器`chatgpt-share-server-extend`
@@ -7,27 +6,18 @@
 - 用户端：[demo.ainx.cc](https://demo.ainx.cc) 【自行注册账号/体验账号:test@gmail.com:test@gmail.com】
 - 管理端：[demo.ainx.cc/xyhelper](https://demo.ainx.cc/xyhelper) 
 
-## 日志
-- 2024/03/18 修复UserToken过期了还能使用的问题
-- 2024/03/21 用户管理模块增加UserToken的模糊查询
-- 2024/04/15 增加第三方支付回调事件
-- 2024/04/16 增加批量创建userToken功能
-- 2024/04/30 增加用户体系全套功能 登录、注册、忘记密码、授权码兑换...
-
-- 2024/06/07 代码重构 改成外挂容器`chatgpt-share-server-extend`、修复已知bug
-- 2024/07/12 auditlimit 代码重构、增加售卖次卡 修复已知bug
 ## 系统截图说明
 ### 用户界面
+- [x] 用户主页面【黑色】
+- ![子目录图片](./images/img_3.png)
+- [x] 用户主页面【白色】
+- ![子目录图片](./images/img_4.png)
 - [x] 用户登录
 - ![子目录图片](./images/img.png)
 - [x] 用户注册
 - ![子目录图片](./images/img_1.png)
 - [x] 忘记密码
 - ![子目录图片](./images/img_2.png)
-- [x] 用户主页面【黑色】
-- ![子目录图片](./images/img_3.png)
-- [x] 用户主页面【白色】
-- ![子目录图片](./images/img_4.png)
 - [x] 授权码页面
 - ![子目录图片](./images/img_5.png)
 - [x] 商城购买页面
@@ -44,16 +34,17 @@
 - ![子目录图片](./images/img_10.png)
 
 
-## 如何部署
+## 部署
 
-### 1、一键部署
+### 2、部署教程
 
-- 安装脚本
-```bash
-curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-server/master/quick-install.sh | bash
-```
+- 克隆项目：git clone https://github.com/frontend-winter/chatgpt-share-server.git
+- 进入到文件夹：cd chatgpt-share-server
+- 修改配置文件如下：docker-compose.yml
+- ![子目录图片](./images/img_18.png)
+- 启动项目：./deploy.sh
 
-- nginx 配置文件 找到你的nginx配置，修改成以下配置。如果你不是nginx 自行配置
+- nginx 配置文件 找到你的nginx配置，修改成以下配置。Cabby 
 ```nginx configuration
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -91,8 +82,7 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 
 ```
 
-
-- 备用配置
+- 备用配置（如果上面配置 不生效使用备用配置）
 ```nginx configuration
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -129,13 +119,6 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 - 把这些无用的配置注释
 - ![子目录图片](./images/img_16.png)
 
-### 2、手动部署
-
-- git clone https://github.com/frontend-winter/chatgpt-share-server.git
-- cd chatgpt-share-server
-- ./deploy.sh
-
-- 修改你的 nginx配置 如上
 
 ### 3、老用户部署：如果你是老系统想直接想用，请继续阅读
 1、先备份、先备份、先备份 
@@ -153,7 +136,7 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
     environment:
       TZ: Asia/Shanghai
       # 接入网关地址
-      CHATPROXY: "https://demo.xyhelper.cn"
+      CHATPROXY: "https://demo.xyhelper.cn" #请替换成你的网关地址
       # 接入网关的authkey
       AUTHKEY: "xyhelper"
     volumes:
@@ -164,8 +147,6 @@ curl -sSfL https://raw.githubusercontent.com/frontend-winter/chatgpt-share-serve
 ```
 - 保存 ./deploy.sh 
 - 修改你的 nginx配置 如上
-
-### 4、如果是之前就部署了`fewinter/chatgpt-share-server`的镜像用户要迁移，自行参考`docker-compose.yml`文件修改
 
 ### 5、后台增加客户管理页面
 - 点击系统管理 - 权限管理 - 菜单管理 - 增加列表【点击新增按钮】
