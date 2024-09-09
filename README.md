@@ -36,11 +36,11 @@
 
 ## 部署
 
-### 2、部署教程
+### 1、部署教程
 
 - 克隆项目：git clone https://github.com/frontend-winter/chatgpt-share-server.git
 - 进入到文件夹：cd chatgpt-share-server
-- 修改配置文件如下：docker-compose.yml
+- 修改配置文件：docker-compose.yml
 - ![子目录图片](./images/img_18.png)
 - 启动项目：./deploy.sh
 
@@ -120,7 +120,7 @@
 - ![子目录图片](./images/img_16.png)
 
 
-### 3、老用户部署：如果你是老系统想直接想用，请继续阅读
+### 2、老用户部署：如果你是老系统想直接想用，请继续阅读
 1、先备份、先备份、先备份 
 - `docker compose down`
 - `cp -r ../chatgpt-share-server ../chatgpt-share-server-bak`
@@ -148,7 +148,7 @@
 - 保存 ./deploy.sh 
 - 修改你的 nginx配置 如上
 
-### 5、后台增加客户管理页面
+### 3、后台增加客户管理页面（2024/09/09 起 会自动生成菜单不需要再进行配置）
 - 点击系统管理 - 权限管理 - 菜单管理 - 增加列表【点击新增按钮】
 - 填写以下参数，我这里已经填写好了（如果你的文件路径没有client选项，说明nginx配置配置错误了）
 - ![子目录图片](./images/img_11.png)
@@ -157,7 +157,7 @@
 - 用户管理修改名称为授权码管理
 - ![子目录图片](./images/img_17.png)
 
-### 遇到这种情况的联系我开通一下域名 wx： `frontend-winter`(备注：share过白名单：【你的域名】，不然不会通过)
+### 4、遇到这种情况的联系我开通一下域名 wx： `frontend-winter`(备注：share过白名单：【你的域名】，不然不会通过)
 - ![子目录图片](./images/img_14.png)
 
 ### 遇到问题？重启服务
