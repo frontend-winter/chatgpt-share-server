@@ -1,6 +1,6 @@
-# chatgpt-share-server-extend
+# chatgpt-share-server-extend（go语言开发的外挂容器版本）
 
-## 此项目是go语言开发的`chatgpt-share-server`外挂容器`chatgpt-share-server-extend`
+## xyhelper 原版项目地址 [chatgpt-share-server](https://github.com/xyhelper/chatgpt-share-server.git )
 
 ## 在线体验
 - 用户端：[demo.ainx.cc](https://demo.ainx.cc) 【自行注册账号/体验账号:test@gmail.com:test@gmail.com】
@@ -44,7 +44,7 @@
 - ![子目录图片](./images/img_18.png)
 - 启动项目：./deploy.sh
 
-- nginx 配置文件 找到你的nginx配置，修改成以下配置。Cabby 
+- nginx 配置文件 找到你的nginx配置，修改成以下配置。 
 ```nginx configuration
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -82,7 +82,7 @@
 
 ```
 
-- 备用配置（如果上面配置 不生效使用备用配置）
+- 备用配置（如果上面配置不生效 使用备用配置）
 ```nginx configuration
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -120,7 +120,7 @@
 - ![子目录图片](./images/img_16.png)
 
 
-### 2、老用户部署：如果你是老系统想直接想用，请继续阅读
+### 2、xyhelper原版部署，请继续阅读
 1、先备份、先备份、先备份 
 - `docker compose down`
 - `cp -r ../chatgpt-share-server ../chatgpt-share-server-bak`
@@ -136,7 +136,7 @@
     environment:
       TZ: Asia/Shanghai
       # 接入网关地址
-      CHATPROXY: "https://demo.xyhelper.cn" #请替换成你的网关地址
+      CHATPROXY: "https://demo.xyhelper.cn" #替换成你的网关地址
       # 接入网关的authkey
       AUTHKEY: "xyhelper"
     volumes:
