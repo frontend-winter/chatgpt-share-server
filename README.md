@@ -1,4 +1,6 @@
-# chatgpt-share-server-extend（go语言开发的外挂容器版本）
+# chatgpt-share-server-extend
+
+# 此项目是go语言开发的外挂容器版本`chatgpt-share-server-extend`，基于`chatgpt-share-server`项目，增加了用户注册、登录、授权码管理、商城购买等功能。
 
 ## xyhelper 原版项目地址 [chatgpt-share-server](https://github.com/xyhelper/chatgpt-share-server.git )
 
