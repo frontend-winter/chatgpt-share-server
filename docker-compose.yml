@@ -53,6 +53,7 @@ services:
     volumes:
       - ./config.yaml:/app/config.yaml
       - ./data/chatgpt-share-server/:/app/data/
+      - ./extend.js:/app/resource/public/extend.js
     labels:
       - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
     depends_on:
