@@ -82,6 +82,11 @@
         location /u/ {
             proxy_pass http://127.0.0.1:8301/u/;
         }
+        
+        # chatgpt-share-server-extend 的端口
+        location = /list.js {
+            proxy_pass http://127.0.0.1:8301/list.js;
+        }
 
 ```
 
@@ -112,6 +117,11 @@
         # chatgpt-share-server-extend 的端口
         location ~ ^/(list|xyhelper|u)(/.*)?$ {
             proxy_pass http://127.0.0.1:8301/$1$2;
+        }
+        
+        # chatgpt-share-server-extend 的端口
+        location = /list.js {
+            proxy_pass http://127.0.0.1:8301/list.js;
         }
 
 
