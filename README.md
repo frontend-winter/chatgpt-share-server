@@ -132,10 +132,102 @@
 - ![子目录图片](./images/img_16.png)
 
 
+- caddy 配置
+```caddy
+你的域名xxxxxx {
+    # 全局代理头设置
+    header {
+        Strict-Transport-Security "max-age=31536000"
+    }
+
+    # 启用调试日志
+    log {
+        output stderr
+        level DEBUG
+    }
+
+    # 处理 /list 路径的重定向问题
+    @list {
+        path /list /list/*
+    }
+    handle @list {
+        reverse_proxy http://127.0.0.1:8301 {
+            header_up Host {host}
+            header_up X-Real-IP {remote}
+            header_up X-Forwarded-For {remote}
+            header_up X-Forwarded-Proto {scheme}
+            # 禁用自动重定向
+            header_down -Location
+        }
+    }
+
+    # 处理 /exend 路径
+    handle_path /exend/* {
+        reverse_proxy http://127.0.0.1:8301 {
+            header_up Host {host}
+            header_up X-Real-IP {remote}
+            header_up X-Forwarded-For {remote}
+            header_up X-Forwarded-Proto {scheme}
+        }
+    }
+
+    # 定义 @admin 匹配器，匹配 /admin 和 /admin/*
+    @admin {
+        path /admin /admin/*
+    }
+    handle @admin {
+        reverse_proxy http://127.0.0.1:8301 {
+            header_up Host {host}
+            header_up X-Real-IP {remote}
+            header_up X-Forwarded-For {remote}
+            header_up X-Forwarded-Proto {scheme}
+        }
+    }
+
+    # 处理 /xyhelper 路径的重定向问题
+    @xyhelper {
+        path /xyhelper /xyhelper/*
+    }
+    handle @xyhelper {
+        reverse_proxy http://127.0.0.1:8301 {
+            header_up Host {host}
+            header_up X-Real-IP {remote}
+            header_up X-Forwarded-For {remote}
+            header_up X-Forwarded-Proto {scheme}
+            # 禁用自动重定向
+            header_down -Location
+        }
+    }
+
+    # 处理 /u 路径
+    @u {
+        path /u /u/*
+    }
+    handle @u {
+        reverse_proxy http://127.0.0.1:8301 {
+            header_up Host {host}
+            header_up X-Real-IP {remote}
+            header_up X-Forwarded-For {remote}
+            header_up X-Forwarded-Proto {scheme}
+        }
+    }
+
+    # 默认处理器
+    handle {
+        reverse_proxy http://127.0.0.1:8300 {
+            header_up Host {host}
+            header_up X-Real-IP {remote}
+            header_up X-Forwarded-For {remote}
+            header_up X-Forwarded-Proto {scheme}
+        }
+    }
+}
+```
+
 ### 2、xyhelper原版部署，请继续阅读
 1、先备份、先备份、先备份 
 - `docker compose down`
-- `cp -r ../chatgpt-share-server ../chatgpt-share-server-bak`
+- `cp -r ../chatgpt-share-server/ ../chatgpt-share-server-bak`
 
 2、备份好了？ 接着看
 - 找到你的`docker-compose.yml`文件 在 `chatgpt-share-server` 下方再增加一个容器配置
@@ -158,7 +250,7 @@
       - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
 ```
 - 保存 ./deploy.sh 
-- 修改你的 nginx配置 如上
+- 修改你的 nginx 配置 如上
 
 ### 3、后台增加客户管理页面（2024/09/09 起 会自动生成菜单不需要再进行配置）
 - 点击系统管理 - 权限管理 - 菜单管理 - 增加列表【点击新增按钮】
