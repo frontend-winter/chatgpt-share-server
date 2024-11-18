@@ -47,7 +47,7 @@
 - ![子目录图片](./images/img_18.png)
 - 启动项目：./deploy.sh
 
-- nginx 配置文件 找到你的nginx配置，修改成以下配置。 
+- nginx 配置文件 找到你的nginx设置，修改成以下配置。 
 ```nginx configuration
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
