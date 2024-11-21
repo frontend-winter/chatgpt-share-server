@@ -25,7 +25,7 @@ services:
     image: xyhelper/chatgpt-share-server:latest
     restart: always
     ports:
-      - 8300:8001
+      - 127.0.0.1:8300:8001
     environment:
       TZ: Asia/Shanghai # 指定时区
       # 接入网关地址
@@ -41,7 +41,7 @@ services:
     image: fewinter/chatgpt-share-server-extend:latest
     restart: always
     ports:
-      - 8301:8002
+      - 127.0.0.1:8301:8002
     environment:
       TZ: Asia/Shanghai
       # 接入网关地址
