@@ -281,7 +281,12 @@ auditlimit:
       - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
 ```
 - 创建一个新的 extend.js 文件
-- 
+- config.yaml 文件增加以下配置
+# 内容审核及速率限制
+AUDIT_LIMIT_URL: "http://auditlimit:8080/audit_limit"
+# 对话响应成功回调地址
+ConversationNotifyUrl: "http://auditlimit:8080/audit_limit_callback"
+
 
 - 保存 ./deploy.sh 
 - 修改你的 nginx 配置 如上
