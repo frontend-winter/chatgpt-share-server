@@ -236,19 +236,58 @@
     image: fewinter/chatgpt-share-server-extend:latest
     restart: always
     ports:
-      - 8301:8002
+      - 127.0.0.1:8301:8002
     environment:
       TZ: Asia/Shanghai
       # 接入网关地址
-      CHATPROXY: "https://demo.xyhelper.cn" #替换成你的网关地址
+      CHATPROXY: "https://demo.xyhelper.cn"
       # 接入网关的authkey
       AUTHKEY: "xyhelper"
+      # 登录有效期 默认是30天，单位小时
+      SESSION_MAX_AGE: 210
     volumes:
       - ./config.yaml:/app/config.yaml
       - ./data/chatgpt-share-server/:/app/data/
+      - ./extend.js:/app/resource/public/extend.js
+    labels:
+      - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
+    depends_on:
+      - chatgpt-share-server
+```
+- 修改原有的限速容器
+```
+auditlimit:
+    image: fewinter/share-auditlimit-prod
+    restart: always
+    # ports:
+    #   - 9611:8080
+    environment:
+      LIMIT: 40  # 限制PLUS每个userToken允许的次数
+      PER: "3h" # 限制PLUS周期 单位只能是h，0.05h=3分钟，0.1h=6分钟，0.5h=30分钟，1h=60分钟，以此类推
+
+      OLIMIT: 6 # 限制免费模型 每个userToken允许的次数
+      OPER: "0.1h" # 限制免费模型周期 单位只能是h，0.05h=3分钟，0.1h=6分钟，0.5h=30分钟，1h=60分钟，以此类推
+
+      O1LIMIT: 50 # 限制PLUS每个userToken允许O1的次数
+      O1PER: "1d" # 限制周期 1h=1小时，1d=一天，1w=一周，1y=一年
+
+      O1MINILIMIT: 50 # 限制PLUS每个userToken允许O1mini的次数
+      O1MINIPER: "1d" # 限制周期 1h=1小时，1d=一天，1w=一周，1y=一年
+    volumes:
+      - ./config.yaml:/app/config.yaml
+      # 如果不需要内容审核填加一个keywords.txt文件，内容为空，再把下面的注释打开即可
+      #- ./keywords.txt:/app/data/keywords.txt
     labels:
       - "com.centurylinklabs.watchtower.scope=fewinter-chatgpt-share-server-extend"
 ```
+- 创建一个新的 extend.js 文件
+- config.yaml 文件增加以下配置
+#内容审核及速率限制
+AUDIT_LIMIT_URL: "http://auditlimit:8080/audit_limit"
+#对话响应成功回调地址
+ConversationNotifyUrl: "http://auditlimit:8080/audit_limit_callback"
+
+
 - 保存 ./deploy.sh 
 - 修改你的 nginx 配置 如上
 
