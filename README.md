@@ -302,6 +302,8 @@ auditlimit:
 ### 4、遇到这种情况的联系我开通一下域名 wx： `frontend-winter`(备注：share过白名单：【你的域名】，不然不会通过)
 - ![子目录图片](./images/img_14.png)
 
+### 5、授权购买链接 [点击访问](https://extend-pay.ainx.cc/)
+
 ### 遇到问题？重启服务
 - `docker compose down`
 - `./deploy.sh`
