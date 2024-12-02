@@ -6,7 +6,7 @@
 
 ## 在线体验
 - 用户端：[demo.ainx.cc](https://demo.ainx.cc) 【体验账号/密码:test@gmail.com/test@gmail.com】
-- 管理端：[demo.ainx.cc/xyhelper](https://demo.ainx.cc/xyhelper) 【体验账号:test/123456】
+- 管理端：[demo.ainx.cc/xyhelper](https://demo.ainx.cc/xyhelper) 【体验账号/密码:test/123456】
 
 
 ## 系统截图说明
