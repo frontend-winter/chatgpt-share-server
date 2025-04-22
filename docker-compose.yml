@@ -64,20 +64,23 @@ services:
     # ports:
     #   - 9611:8080
     environment:
-      LIMIT: 40  # 限制PLUS次数
-      PER: "3h" # 限制PLUS模型周期 单位只能是h，0.05h=3分钟，0.1h=6分钟，0.5h=30分钟，1h=60分钟，以此类推
+      # 免费用户 沿用之前的配置
+      OLIMIT: 20 # 限制免费模型 每个userToken允许的次数
+      OPER: "3h" # 限制免费模型 周期1h, 1d, 1w, 1y
+      
+      # 模型限制 （注意：模型名称要大写，后面跟的是次数/时间）
+      AUTO: "200/3h"
+      TEXT-DAVINCI-002-RENDER-SHA: "200/3h"
+      GPT-4O-MINI: "200/3h"
+      GPT-4O: "60/3h"
+      GPT-4: "20/3h"
+      GPT-4O-CANMORE: "30/3h"
+      O1: "20/24h"
+      O1-PRO: "20/24h"
+      O3: "20/24h"
+      O4-MINI: "60/3h"
+      O4-MINI-HIGH: "60/3h"
 
-      OLIMIT: 6 # 限制免费模型次数
-      OPER: "0.1h" # 限制免费模型周期 单位只能是h，0.05h=3分钟，0.1h=6分钟，0.5h=30分钟，1h=60分钟，以此类推
-
-      O1LIMIT: 50 # 限制o1次数
-      O1PER: "1d" # 限制o1模型周期 1h=1小时，1d=一天，1w=一周，1y=一年
-
-      O1PROLIMIT: 50 # 限制o1 Pro次数
-      O1PROPER: "1d" # 限制o1 Pro模型周期 1h=1小时，1d=一天，1w=一周，1y=一年
-
-      O1MINILIMIT: 50 # 限制o1-mini次数
-      O1MINIPER: "1d" # 限制周期 1h=1小时，1d=一天，1w=一周，1y=一年
     volumes:
       - ./config.yaml:/app/config.yaml
       # 如果不需要内容审核填加一个keywords.txt文件，内容为空，再把下面的注释打开即可
